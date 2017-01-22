@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+    <link rel="icon" href="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3909744108,1760424881&fm=58">
+
+    <title>My first django project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/css/navbar-fixed-top.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="mdialog.css">
+<style type="text/css">
+	input{
+		width: 70px;
+		height:20px;
+		margin:auto;
+	}
+</style>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../static/js/ie-emulation-modes-warning.js"></script>
+    <script src="../static/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+            function duihua()
+    {
+    alert("抱歉，请先登录！")
+    }
+    </script>
+
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+        $(".d").click(function(){
+            $(".mk").show();
+            return false;//关键是这里，阻止冒泡
+        });
+        $(".mk").click(function(){
+            return false;
+        });
+        $(document).click(function(){
+            $(".mk").hide();
+        });
+    })
+    </script>
+
+    <script>tinymce.init({ selector:'textarea',
+            height: 100,
+            theme: 'modern',
+          plugins: [
+            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+          ],
+          toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+          toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+          image_advtab: true,
+          templates: [
+            { title: 'Test template 1', content: 'Test 1' },
+            { title: 'Test template 2', content: 'Test 2' }
+          ],
+          content_css: [
+            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            '//www.tinymce.com/css/codepen.min.css'
+          ]
+     });
+     </script>
+
+    <script type="text/javascript">
+        //===========================点击展开关闭效果====================================
+        function openShutManager(oSourceObj,oTargetObj,shutAble,oOpenTip,oShutTip){
+        var sourceObj = typeof oSourceObj == "string" ? document.getElementById(oSourceObj) : oSourceObj;
+        var targetObj = typeof oTargetObj == "string" ? document.getElementById(oTargetObj) : oTargetObj;
+        var openTip = oOpenTip || "";
+        var shutTip = oShutTip || "";
+        if(targetObj.style.display!="none"){
+           if(shutAble) return;
+           targetObj.style.display="none";
+           if(openTip  &&  shutTip){
+            sourceObj.innerHTML = shutTip;
+           }
+        } else {
+           targetObj.style.display="block";
+           if(openTip  &&  shutTip){
+            sourceObj.innerHTML = openTip;
+           }
+        }
+        }
+    </script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]> <![endif]-->
+<script language="javascript">
+    function delcfm() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>
+    <style type="text/css">
+<!--
+    body { font-size:12px}
+    ul { width:100%; margin:0; padding:0; list-style:none}
+    .newslist { line-height:20px; padding:5px 0; color:#333; border-bottom:1px dashed #ccc}
+    .newslist span { color:#888; float:right; text-align:right}
+    a { color:#333; text-decoration:none}
+    a:hover { color:blue; text-decoration:underline}
+
+    .footer { line-height:20px; width:600px; margin-left:2px; padding:20 2px; font-size:15px; color:#278}
+    .footer span{ float:left;color:#A1B5B7;font-size:14px}
+    .footer input{ float:right;color:#F9A5A7;font-size:14px}
+-->
+
+</style>
+    <script type="text/javascript">
+function showAndHidden1(){
+  var div1=document.getElementById("div1");
+  var div2=document.getElementById("div2");
+  if(div1.style.display=='block') div1.style.display='none';
+  else div1.style.display='block';
+  if(div2.style.display=='block') div2.style.display='none';
+  else div2.style.display='block';
+}
+</script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" style="float:left">
+            <li class="active">
+                <a href="/culture">全部</a>
+            </li>
+            {% for i in category %}
+              {% if i.pk == sec_id %}
+            <li class="active">
+                <a href="/section{{i.pk}}">{{i.name}}</a>
+            </li>
+              {% else %}
+            <li>
+                <a href="/section{{i.pk}}">{{i.name}}</a>
+            </li>
+              {% endif %}
+            {% endfor %}
+            <li class="dropdown" style="width:500px">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">军事</a></li>
+                <li><a href="#">健康</a></li>
+                <li><a href="#">旅行</a></li>
+              </ul>
+
+            </li>
+            {% if user.is_authenticated %}
+            <li><a href="/personal" style="color:#918">{{bbs_user.name}}</a></li>
+            <li><a href="/logout">注销</a></li>
+            <li><a href="/personal"><img id="img_aside_head" style="max-width: 64px; max-height: 64px;
+            width: 64px; height: 64px; visibility: visible; margin-top: 0px;" page_link_custom_elem_flag="true"
+            src={{images}}></a></li>
+            {% else %}
+            <li><a href="/login/" style="color:#829">登录</a></li>
+            {% endif %}
+          </ul>
+
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>DJANGO</h1>
+
+        {% block one %}
+        {% endblock %}
+        {% block two %}
+        {% endblock %}
+        {% block three %}
+        {% endblock %}
+
+
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../static/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block one %}
+{% load label %}
+<ul>
+    <li style="font-size:20px;color:#509">楼主</li>
+</ul>
+<span style="font-size:17px;color:#666">{{ bbs.title}} --- {{ bbs.author.name }}</span>
+<p style="font-size:25px;color:#299">{{ bbs.content|safe}}</p>
+<ul>
+    {% Add bbs user %}
+    <li><a href="###" style="color:#500" onclick="openShutManager(this,'bbs_huifu',false,'取消','评论')">评论</a></li>
+    <div id="bbs_huifu" style="margin-right:20px;display:none">
+        <p></p>
+        <div>
+             <form action="/comments/" method="post">
+                  <textarea name="comment"></textarea>
+                  <input type="hidden" name="id" value={{bbs.id}} />
+                  <input type="hidden" name="floor" value="first" />
+                  <p style="height:1px">&nbsp;</p>
+                  {% Judge judge %}
+			      <p style="height:1px">&nbsp;</p>
+             </form>
+        </div>
+        <p style="height:2px">&nbsp;</p>
+        <div style="BORDER-TOP: pink 1px dashed; OVERFLOW: hidden; HEIGHT: 1px;width:980px">
+    </div>
+</ul>
+<p>&nbsp;</p>
+<span style="font-size:23px;color:blue">相关评论</span><span style="font-size:18px;color:#156">(<span style="font-size:22px;color:red">{{count}}</span>次评论):</span>
+<p>&nbsp;</p>
+{% Comment_tree ladder judge user %}
+{{ ladder }}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+{% endblock %}

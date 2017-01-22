@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>点击删除按钮后 弹窗确认删除对话框 在线演示 www.divcss5.com </title>
+    <script language="JavaScript">
+function delete_confirm(e)
+{
+    if (event.srcElement.outerText == "删除")
+    {
+        event.returnValue = confirm("删除是不可恢复的，你确认要删除吗？");
+    }
+}
+document.onclick = delete_confirm;
+</script>
+</head>
+
+<body>
+<p>
+  <script language="javascript">
+    function delcfm() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script><form action="del.html" target="_blank" method="get">
+<input name="" type="submit" value="删除" onClick="delcfm()" /></form>
+</p>
+
+<p>特效代码说明：单击删除的超链接后将执行delcfm()函数，在对话框中，如果点击"确定"，
+函数将返回true值，就将页面转到<a>标签中的链接页面执行删除的页面；如果点击"取消"，函数将返回false值，
+<a>标签将不转到执行删除的页面。</p>
+
+
+<a href="###" onClick="delete_confirm">删除</a>
+<a href="javascript:if(confirm('确实要删除该内容吗?'))location='http://www.google.com'">弹出窗口</a>
+</body>
+</html>

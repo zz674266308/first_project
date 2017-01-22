@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="margin-left:80px;margin-top:50px">
+        <form action="/modify/" method="post" enctype="multipart/form-data">
+            <li style="list-style-type:none;width:100px"><img id="img_aside_head" style="max-width: 200px; max-height: 200px;
+            width: 200px; height: 200px; visibility: visible; margin-top: 0px;" page_link_custom_elem_flag="true"
+            src={{images}}></li>
+            <span style="color:pink">选择文件 ==> </span>
+            <input type="file" name="images" />
+            <p>姓名：<input style="width:70px" type="text" name="fullname" value={{bbs_user.name}} placeholder={{bbs_user.name}} /></p>
+            {% load label %}
+            {% Choice gender %}
+            <p>个性签名：<input style="width:500px" type="text" name="signature" value={{bbs_user.signature}} placeholder={{bbs_user.signature}} /></p>
+            <p><input type="submit" value="保存" /></p>
+            <a href="/personal" style="color:#812">返回个人主页</a>
+        </form>
+    </div>
+</body>
+</html>

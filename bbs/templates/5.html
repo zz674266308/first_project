@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block one %}
+<span style="font-size:17px;color:#666">{{ bbs.title}} --- {{ bbs.author.name }}</span>
+<p style="font-size:25px;color:#299">{{ bbs.content|safe}}</p>
+<div class="footer">
+        <span>{{bbs.creation_time|date:"Y-m-d t:s"}}</span>
+    <input style="font-size:12px;width:40px;height:20px;line-height:1px" type="button" onclick="showAndHidden1();" value="回复" />
+</div>
+
+<p>&nbsp;</p>
+<span style="font-size:23px;color:blue">相关评论</span><span style="font-size:18px;color:#156">(<span style="font-size:22px;color:red">{{count}}</span>次评论):</span>
+<p>&nbsp;</p>
+{% for i in comment %}
+    <a href="#" style="font-size:16px;color:blue">{{i.author.name}}</a>
+    <p style="font-size:16px;color:#333">{{i.comment}}</p>
+    <div class="footer">
+        <span>{{i.c_date|date:"Y-m-d t:s"}}</span>
+    <a><input style="font-size:12px;width:40px;height:20px;line-height:1px" type="button" onclick="showAndHidden1();" value="回复" /></a>
+    </div>
+        <div id="div1" style="display:block;">
+            <div style="BORDER-TOP: #00686b 1px dashed; OVERFLOW: hidden; HEIGHT: 1px;width:1000px">
+            </div>
+        </div>
+        <div id="div2" style="display:none;">
+            <p>&nbsp;</p>
+            <textarea></textarea>
+            <p style="height:1px">&nbsp;</p>
+            <div style="BORDER-TOP: #00686b 1px dashed; OVERFLOW: hidden; HEIGHT: 1px;width:1000px">
+            </div>
+        </div>
+
+<p>&nbsp;</p>
+{% endfor %}
+{% load label %}
+{% Comment_tree ladder %}
+{{ ladder }}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+{% endblock %}

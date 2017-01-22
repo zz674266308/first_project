@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //===========================点击展开关闭效果====================================
+        function openShutManager(oSourceObj,oTargetObj,shutAble,oOpenTip,oShutTip){
+        var sourceObj = typeof oSourceObj == "string" ? document.getElementById(oSourceObj) : oSourceObj;
+        var targetObj = typeof oTargetObj == "string" ? document.getElementById(oTargetObj) : oTargetObj;
+        var openTip = oOpenTip || "";
+        var shutTip = oShutTip || "";
+        if(targetObj.style.display!="none"){
+           if(shutAble) return;
+           targetObj.style.display="none";
+           if(openTip  &&  shutTip){
+            sourceObj.innerHTML = shutTip;
+           }
+        } else {
+           targetObj.style.display="block";
+           if(openTip  &&  shutTip){
+            sourceObj.innerHTML = openTip;
+           }
+        }
+        }
+    </script>
+</head>
+<body style="background-image:url(../static/media/images/templatemo_body.jpg)">
+    <div style="margin-left:100px;margin-top:50px;float:left;height:170px;width:500px;background-image:url(../static/media/images/templatemo_logo.png)">
+        <div style="width:400px;margin-top:200px;">
+            <li style="list-style-type:none;float:left;width:100px"><img id="img_aside_head" style="max-width: 80px; max-height: 80px;
+                width: 100px; height: 100px; visibility: visible; margin-top: 0px;" page_link_custom_elem_flag="true"
+                src={{images}}></li>
+            <h1 style="color:#630">{{ bbs_user.name }}</h1>
+            <p>{{ bbs_user.signature }}</p>
+            {{ bbs_user.gender }}
+        </div>
+    </div>
+    <div style="margin-left:700px;margin-top:50px;width:500px">
+            <li style="list-style-type:none;float:left;width:50px"><a href="/culture" style="color:#520" >主页</a></li>
+            <li style="list-style-type:none;float:left;width:50px"><a href="###"  style="color:#520" onclick="openShutManager(this,'tiezi',false,'帖子','帖子')">帖子</a></li>
+            <li style="list-style-type:none;float:left;width:50px"><a href="###"  style="color:#520" onclick="openShutManager(this,'pinglun',false,'评论','评论')">评论</a></li>
+            <li style="list-style-type:none;float:left;width:85px"><a href="###"  style="color:#520" onclick="openShutManager(this,'myfriend',false,'我的好友','我的好友')">我的好友</a></li>
+            <li style="list-style-type:none;float:left;width:85px"><a href="###"  style="color:#520" onclick="openShutManager(this,'yuwo',false,'与我相关','与我相关')">与我相关</a></li>
+            <li style="list-style-type:none;"><a href="/data"  style="color:#520">修改资料</a></li>
+            <div id="tiezi" style="display:auto">
+                {% for i in bbs %}
+                    <p><a href={% url 'hello' i.id %} >{{ i.content|safe }}</a></p>
+                {% endfor %}
+            </div>
+            <div id="pinglun" style="display:none"><p>eeeeeeeeeeeeeeeeeeeee</p></div>
+            <div id="myfriend" style="display:none"><p>eeeeeeeeeeeeeeeeeeeee</p></div>
+            <div id="yuwo" style="display:none"><p>eeeeeeeeeeeeeeeeeeeee</p></div>
+     </div>
+
+
+</body>
+</html>

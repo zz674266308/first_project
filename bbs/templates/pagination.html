@@ -1,0 +1,40 @@
+<style>
+.pages{ width:60.5%; text-align:right; padding:10px 0; clear:both;}
+.pages span,.pages a,.pages b{ font-size:12px; font-family:Arial, Helvetica,
+
+sans-serif; margin:0 2px;}
+.pages span font{ color:#f00; font-size:12px;}
+.pages a,.pages b{ border:1px solid #5FA623; background:#fff; padding:2px
+
+6px; text-decoration:none}
+
+.pages b,.pages a:hover{ background:#7AB63F; color:#fff;}
+</style>
+<div class="pages">
+{% if current_page.has_previous %}
+    <a href="?page={{ current_page.previous_page_number }}">上一页</a>
+    {% if 1 not in l %}
+    <a href="?page=1">1</a>
+    {% endif %}
+    {% if current_page.number > 4 %}
+    <span style="color:green">......</span>
+    {% endif %}
+{% endif %}
+{% for i in l %}
+    {% if i == current_page.number %}
+    <b style="background-color:#5FA623">{{i}}</b>
+    {% else %}
+    <a href="?page={{i}}">{{i}}</a>
+    {% endif %}
+{% endfor %}
+{% if current_page.has_next %}
+    {% if current_page.number < antepenultimate %}
+    <span style="color:green">......</span>
+    {% endif %}
+    {% if pages not in l %}
+    <a href="?page={{ pages }}">{{pages}}</a>
+    {% endif %}
+    <a href="?page={{ current_page.next_page_number }}">下一页</a>
+{% endif%}
+
+</div>
